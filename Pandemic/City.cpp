@@ -3,7 +3,7 @@
 #include "City.h"
 
 
-City::City(std::string name, std::string color, int pop) : PlayerCard("city") {
+City::City(std::string name, std::string color, int pop) {
 	cityname = name;
 	citycolor = color;
 	population = pop;

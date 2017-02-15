@@ -3,7 +3,7 @@
 #include <string>
 #include "PlayerCard.h"
 
-class City:public PlayerCard {
+class City{
 public:
 	City(std::string name, std::string color, int pop);
 	void getAttributes();
