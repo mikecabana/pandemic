@@ -3,9 +3,8 @@
 #include <string>
 
 
-PlayerCard::PlayerCard(std::string type)
+PlayerCard::PlayerCard()
 {
-	cardtype = type;
 }
 
 std::string PlayerCard::getCardType()

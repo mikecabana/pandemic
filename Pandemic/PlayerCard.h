@@ -4,8 +4,8 @@
 
 class PlayerCard {
 public:
-	PlayerCard(std::string type);
+	PlayerCard();
 	std::string getCardType();
-private:
+protected:
 	std::string cardtype;
 };

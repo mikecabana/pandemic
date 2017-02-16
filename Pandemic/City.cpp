@@ -7,6 +7,7 @@ City::City(std::string name, std::string color, int pop) {
 	cityname = name;
 	citycolor = color;
 	population = pop;
+	cardtype = "city";
 }
 
 void City::getAttributes() {

@@ -2,7 +2,9 @@
 #include <string>
 #include "Epidemic.h"
 
-Epidemic::Epidemic() : PlayerCard("epidemic") {}
+Epidemic::Epidemic(){
+	cardtype = "epidemic";
+}
 
 void Epidemic::display()
 {

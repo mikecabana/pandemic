@@ -3,7 +3,7 @@
 #include <string>
 #include "PlayerCard.h"
 
-class Epidemic:public PlayerCard{
+class Epidemic : public PlayerCard{
 public:
 	Epidemic();
 	void display();
