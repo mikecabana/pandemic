@@ -5,7 +5,6 @@
 class PlayerCard {
 public:
 	PlayerCard();
-	std::string getCardType();
-protected:
-	std::string cardtype;
+	~PlayerCard();
+	virtual void getAttributes();
 };

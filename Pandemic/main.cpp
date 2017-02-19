@@ -1,33 +1,38 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "City.h"
+#include "Event.h"
 #include "Epidemic.h"
-#include "Roles.h"
 #include "PlayerCard.h"
 
 int main() {
 	//testing city card class
-	City Montreal = City("Montreal", "blue", 1000000);
-	Montreal.getAttributes();
-	std::cout << Montreal.getCardType() << std::endl;
+	PlayerCard *city(new City("mtl", "blue", 1000000));
+	city->getAttributes();
+	std::cout << std::endl;
 
 	//testing epidemic card class
-	Epidemic ep1 = Epidemic();
-	ep1.display();
-	std::cout << ep1.getCardType() << std::endl;
+	PlayerCard *epi(new Epidemic());
+	epi->getAttributes();
+	std::cout << std::endl;
 
-	//testing role card class
-	Roles p1 = Roles("p1", 10);
-	p1.output();
+	//testing event card class
+	PlayerCard *eve(new Event("Airlift", "Move any one pawn to any city. Get permission before moving another player's pawn"));
+	eve->getAttributes();
+	std::cout << std::endl;
 
-	//std::cout << Montreal->getCardType() << std::endl;
-	//Montreal.getCityName();
-	//Montreal.getColor();
-	//Montreal.getPop();
-	//Montreal.getCardType();
+	std::vector<PlayerCard> test;
+	test.push_back(*city);
+	test.data()->getAttributes();
 
-	//PlayerCard *e1 = new Epidemic();
-	//e1->display();
+	std::vector<PlayerCard>::iterator it;
+
+	for (it = test.begin(); it != test.end(); ++it) {
+		std::cout << "t" << std::endl;
+		it->getAttributes();
+	}
+
 
 	return 0;
 }

@@ -2,11 +2,11 @@
 #include <string>
 #include "Epidemic.h"
 
-Epidemic::Epidemic(){
-	cardtype = "epidemic";
-}
+Epidemic::Epidemic(){}
 
-void Epidemic::display()
+Epidemic::~Epidemic(){}
+
+void Epidemic::getAttributes()
 {
 	std::cout << "Epidemic!" << std::endl;
 	std::cout << "1 - " << std::endl;

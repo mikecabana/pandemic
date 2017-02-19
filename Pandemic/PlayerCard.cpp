@@ -3,11 +3,10 @@
 #include <string>
 
 
-PlayerCard::PlayerCard()
-{
-}
+PlayerCard::PlayerCard(){}
 
-std::string PlayerCard::getCardType()
+PlayerCard::~PlayerCard(){}
+
+void PlayerCard::getAttributes()
 {
-	return cardtype;
 }

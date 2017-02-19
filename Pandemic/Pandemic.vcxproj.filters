@@ -24,7 +24,10 @@
     <ClInclude Include="Epidemic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Roles.h">
+    <ClInclude Include="Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Deck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +44,10 @@
     <ClCompile Include="Epidemic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Roles.cpp">
+    <ClCompile Include="Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Deck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
