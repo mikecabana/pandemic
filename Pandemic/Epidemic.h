@@ -7,4 +7,7 @@ public:
 	Epidemic();
 	~Epidemic();
 	void getAttributes();
+	std::string getType();
+private:
+	std::string type;
 };

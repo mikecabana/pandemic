@@ -20,7 +20,7 @@ int main() {
 	std::vector<PlayerCard*> epidemics;
 
 	//creating city cards
-	std::ifstream infile("G:\\My Documents\\Visual Studio 2013\\Projects\\pandemic\\cities.txt");
+	std::ifstream infile("..\\cities.txt");
 	std::string name, color;
 	int pop;
 	while (infile >> name >> color >> pop){
@@ -42,17 +42,21 @@ int main() {
 	Deck *deck(new Deck());
 	deck->createDeck(cities, events, epidemics);
 	//output deck
-	/*std::cout << "Deck Size = " << deck->getDeck().size() << std::endl;
-	for (int i = 0; i < deck->getDeck().size(); i++){
-		deck->getDeck()[i]->getAttributes();
-		std::cout << "Card: " << i << std::endl;
-		std::cout << std::endl;
-	}*/
+	//deck->displayDeck();
+
+
+	std::cout << "Welcome to Pandemic assignment 1 part 3 driver." << std::endl;
+	std::cout << "===============================================" << std::endl;
+	std::cout << "What is the name of player 1: ";
+	std::string player1;
+	std::cin >> player1;
+	std::cout << "What is the name of player 2: ";
+	std::string player2;
+	std::cin >> player2;
 
 	//initialize 2 players
-	Player *p1(new Player("Tom"));
-	Player *p2(new Player("Tim"));
-
+	Player *p1(new Player(player1));
+	Player *p2(new Player(player2));
 
 	//populate individual player hands
 	for (int i = 0; i < deck->getPlayerHand().size(); i++){
@@ -61,21 +65,98 @@ int main() {
 		i = i + 1;
 	}
 
-	//display player hands
-	std::cout << "Player " << p1->getName() << "'s hand:" << std::endl;
-	for (int i = 0; i < p1->getHand().size(); i++){
-		p1->getHand()[i]->getAttributes();
-		std::cout << std::endl;
-	}
+	//decisions decisions - hard coded atm. will be possibly implemetned as a functon of class game.
+	bool p1HasEvent = false;
+	bool p2HasEvent = false;
+	int o;
+	std::string option;
+	start: {
 
-	std::cout << std::endl;
-	
-	std::cout << "Player " << p2->getName() << "'s hand:" << std::endl;
-	for (int i = 0; i < p2->getHand().size(); i++){
-		p2->getHand()[i]->getAttributes();
+		std::cout << p1->getName() << "'s turn." << std::endl;
+		std::cout << "These are your cards." << std::endl;
 		std::cout << std::endl;
-	}
+		p1->displayHand();
+		std::cout << std::endl;
+		o = 1;
+		std::cout << "Below are your options. Enter and option number to make a decision." << std::endl;
+		std::cout << o << " : do nothing because city card are useless in this version." << std::endl;
+		for (int i = 0; i < p1->getHand().size(); i++) {
+			if (p1->getHand()[i]->getType() != "city") {
+				p1HasEvent = true;
+			}
+		}
 
+		if (p1HasEvent == true) {
+			o = 2;
+			std::cout << o << " : use 1 event card." << std::endl;
+		}
+		std::cout << o + 1 << " : end the game." << std::endl;
+		std::cin >> option;
+
+		options: {
+			if (option == "1") {
+				std::cout << "Next players turn" << std::endl;
+				goto proceed;
+			}
+			else if (option == "2" && p1HasEvent == true) {
+				std::cout << "Turns out events are useless too. Next players turn.";
+				goto proceed;
+			}
+			else if (option == std::to_string(o + 1)) {
+				std::cout << "Game ended!" << std::endl;
+				goto endgame;
+			}
+			else {
+				std::cout << "Wrong input. Try again!" << std::endl;
+				goto options;
+			}
+		}
+		 proceed:
+
+		//next players turn
+		std::cout << p2->getName() << "'s turn." << std::endl;
+		std::cout << "These are your cards." << std::endl;
+		std::cout << std::endl;
+		p2->displayHand();
+		o = 1;
+		std::cout << std::endl;
+		std::cout << "Below are your options. Enter and option number to make a decision." << std::endl;
+		std::cout << o << " : do nothing because city card are useless in this version." << std::endl;
+		for (int i = 0; i < p2->getHand().size(); i++) {
+			if (p2->getHand()[i]->getType() != "city") {
+				p2HasEvent = true;
+			}
+		}
+
+		if (p2HasEvent == true) {
+			o = 2;
+			std::cout << o << " : use 1 event card." << std::endl;
+		}
+		std::cout << o + 1 << " : end the game." << std::endl;
+		std::cin >> option;
+
+		options2: {
+			if (option == "1") {
+				std::cout << "Next players turn" << std::endl;
+				goto proceed2;
+			}
+			else if (option == "2" && p2HasEvent == true) {
+				std::cout << "Turns out events are useless too. Next players turn." << std::endl;
+				goto proceed2;
+			}
+			else if (option == std::to_string(o + 1)) {
+				std::cout << "Game ended!" << std::endl;
+				goto endgame;
+			}
+			else {
+				std::cout << "Wrong input. Try again!" << std::endl;
+				goto options2;
+			}
+		}
+			  proceed2:
+				  goto start;
+	}
+	endgame:
 
 	
 	return 0;

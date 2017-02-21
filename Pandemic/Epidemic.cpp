@@ -2,7 +2,9 @@
 #include <string>
 #include "Epidemic.h"
 
-Epidemic::Epidemic(){}
+Epidemic::Epidemic(){
+	type = "epidemic";
+}
 
 Epidemic::~Epidemic(){}
 
@@ -15,4 +17,9 @@ void Epidemic::getAttributes()
 	std::cout << "Draw the bottom card from the Ingection Deck nd put 3 cubes on that city. Discard that card." << std::endl;
 	std::cout << "3 - Intensify" << std::endl;
 	std::cout << "Shuffle the cards in the Infection Discard Pile and put them on top of the Infection Deck." << std::endl;
+}
+
+std::string Epidemic::getType()
+{
+	return type;
 }

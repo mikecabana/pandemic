@@ -11,6 +11,7 @@ public:
 	void addCard(PlayerCard *card);
 	std::vector<PlayerCard*> getHand();
 	std::string getName();
+	void displayHand();
 private:
 	std::string name;
 	std::vector<PlayerCard*> hand;

@@ -7,4 +7,5 @@ public:
 	PlayerCard();
 	~PlayerCard();
 	virtual void getAttributes();
+	virtual std::string getType();
 };

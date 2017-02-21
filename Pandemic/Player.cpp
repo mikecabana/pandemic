@@ -20,3 +20,11 @@ std::vector<PlayerCard*> Player::getHand(){
 std::string Player::getName(){
 	return name;
 }
+
+void Player::displayHand()
+{
+	for (int i = 0; i < hand.size(); i++) {
+		hand[i]->getAttributes();
+		std::cout << "----------------------" << std::endl;
+	}
+}

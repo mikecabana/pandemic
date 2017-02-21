@@ -13,3 +13,8 @@ void Event::getAttributes() {
 	std::cout << "Name: " << name << std::endl;
 	std::cout << "Description: " << description << std::endl;
 }
+
+std::string Event::getType()
+{
+	return name;
+}

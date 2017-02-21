@@ -59,3 +59,13 @@ std::vector<PlayerCard*> Deck::getDeck() {
 std::vector<PlayerCard*> Deck::getPlayerHand() {
 	return playerHand;
 }
+
+void Deck::displayDeck(){
+	//for debugging
+	std::cout << "Deck Size = " << deck.size() << std::endl;
+	for (int i = 0; i < deck.size(); i++) {
+		deck[i]->getAttributes();
+		std::cout << "Card: " << i << std::endl;
+		std::cout << std::endl;
+	}
+}
