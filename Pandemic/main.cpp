@@ -158,6 +158,21 @@ int main() {
 	}
 	endgame:
 
+	//delete all pointers
+	for (auto it = cities.begin(); it != cities.end(); it++)
+		delete *it;
+	cities.clear();
+
+	for (auto it = events.begin(); it != events.end(); it++)
+		delete *it;
+	events.clear();
+
+	for (auto it = epidemics.begin(); it != epidemics.end(); it++)
+		delete *it;
+	epidemics.clear();
+
+	delete deck, p1, p2;
+	deck, p1, p2 = NULL;
 	
 	return 0;
 }
