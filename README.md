@@ -3,6 +3,6 @@
 
 To run the program:
 
-1. Go to `./x64/Debug/`
-2. Run `Pandemic.exe`
-3. Follow given instructions.
+1. Open the project in visual studio. Can be done by double clicking `Pandemic.sln`.
+2. Click on `Local Windows Debugger` at top of window.
+3. Follow on screen instructions.
