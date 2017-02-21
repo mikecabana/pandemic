@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 #include <vector>
 #include <stdlib.h>
 #include <time.h>
@@ -11,32 +12,50 @@ void Deck::getAttributes(){
 	std::cout << "This is a player deck" << std::endl;
 }
 
-void Deck::createDeck(std::vector<PlayerCard> cities, std::vector<PlayerCard> events, std::vector<PlayerCard> epidemics) {
+void Deck::createDeck(std::vector<PlayerCard*> cities, std::vector<PlayerCard*> events, std::vector<PlayerCard*> epidemics) {
+	int randIndex;
+
+	//populate preDeck
 	for (size_t i = 0; i < cities.size(); i++) {
 		preDeck.push_back(cities.at(i));
 	}
 
-	for (size_t i = 0; i < cities.size(); i++) {
+	for (size_t i = 0; i < events.size(); i++) {
 		preDeck.push_back(events.at(i));
 	}
 
-	srand((unsigned int)time(NULL)); //initialize the random seed
+	//populate playerHand with cards for players
+	for (int a = 0; a < 8; a++){
+		randIndex = rand() % preDeck.size();
 
-	
+		playerHand.push_back(preDeck.at(randIndex));
+		preDeck.erase(preDeck.begin() + randIndex);
+	}
 
-	for (size_t i = 0; i < preDeck.size(); i++) {
-		//generates a random number between 0 and preDeck size
-		int randIndex = rand() % preDeck.size();
-		int e = 0;
-		if (i % 12 == 11) {
-			deck.push_back(epidemics.at(e));
-			e++;
-		}
-		else
+	int psize = preDeck.size();
+
+	//create final playerdeck
+	for (int i = 0; i < psize; i++) {
+		if (i == psize)
+			break;
+
+		if (preDeck.size() != 0){
+			randIndex = rand() % preDeck.size();
+
+			if (i % 12 == 11){
+				deck.push_back(epidemics.at(0));
+			}
+
 			deck.push_back(preDeck.at(randIndex));
+			preDeck.erase(preDeck.begin() + randIndex);
+		}
 	}
 }
 
-std::vector<PlayerCard> Deck::getDeck() {
+std::vector<PlayerCard*> Deck::getDeck() {
 	return deck;
+}
+
+std::vector<PlayerCard*> Deck::getPlayerHand() {
+	return playerHand;
 }

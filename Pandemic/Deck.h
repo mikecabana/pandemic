@@ -8,9 +8,11 @@ public:
 	Deck();
 	~Deck();
 	void getAttributes();
-	void createDeck(std::vector<PlayerCard> cities, std::vector<PlayerCard> events, std::vector<PlayerCard> epidemics);
-	std::vector<PlayerCard> getDeck();
+	void createDeck(std::vector<PlayerCard*> cities, std::vector<PlayerCard*> events, std::vector<PlayerCard*> epidemics);
+	std::vector<PlayerCard*> getDeck();
+	std::vector<PlayerCard*> getPlayerHand();
 private:
-	std::vector<PlayerCard> preDeck;
-	std::vector<PlayerCard> deck;
+	std::vector<PlayerCard*> preDeck;
+	std::vector<PlayerCard*> deck;
+	std::vector<PlayerCard*> playerHand;
 };
