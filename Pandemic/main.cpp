@@ -6,9 +6,9 @@
 #include "City.h"
 #include "Event.h"
 #include "Epidemic.h"
-#include "PlayerCard.h"
 #include "Deck.h"
 #include "Player.h"
+#include "reference_cards.h"
 
 
 int main() {
@@ -58,6 +58,7 @@ int main() {
 	Player *p1(new Player(player1));
 	Player *p2(new Player(player2));
 
+	p1->getReferenceCard();
 	//populate individual player hands
 	for (int i = 0; i < deck->getPlayerHand().size(); i++){
 		p1->addCard(deck->getPlayerHand().at(i));
@@ -78,7 +79,7 @@ int main() {
 		p1->displayHand();
 		std::cout << std::endl;
 		o = 1;
-		std::cout << "Below are your options. Enter and option number to make a decision." << std::endl;
+		std::cout << "Below are your options. Enter an option number to make a decision." << std::endl;
 		std::cout << o << " : do nothing because city card are useless in this version." << std::endl;
 		for (int i = 0; i < p1->getHand().size(); i++) {
 			if (p1->getHand()[i]->getType() != "city") {
@@ -120,7 +121,7 @@ int main() {
 		p2->displayHand();
 		o = 1;
 		std::cout << std::endl;
-		std::cout << "Below are your options. Enter and option number to make a decision." << std::endl;
+		std::cout << "Below are your options. Enter an option number to make a decision." << std::endl;
 		std::cout << o << " : do nothing because city card are useless in this version." << std::endl;
 		for (int i = 0; i < p2->getHand().size(); i++) {
 			if (p2->getHand()[i]->getType() != "city") {
@@ -137,7 +138,7 @@ int main() {
 
 		options2: {
 			if (option == "1") {
-				std::cout << "Next players turn" << std::endl;
+				std::cout << "Next players turn." << std::endl;
 				goto proceed2;
 			}
 			else if (option == "2" && p2HasEvent == true) {

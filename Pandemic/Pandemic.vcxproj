@@ -152,6 +152,8 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerCard.h" />
+    <ClInclude Include="reference_cards.h" />
+    <ClInclude Include="roles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="City.cpp" />
@@ -161,6 +163,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerCard.cpp" />
+    <ClCompile Include="reference_cards.cpp" />
+    <ClCompile Include="roles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\cities.txt" />

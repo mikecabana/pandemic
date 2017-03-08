@@ -5,6 +5,7 @@
 
 Player::Player(std::string n){
 	name = n;
+	reference_card = reference_cards::instance();
 };
 
 Player::~Player(){};
@@ -27,4 +28,8 @@ void Player::displayHand()
 		hand[i]->getAttributes();
 		std::cout << "----------------------" << std::endl;
 	}
+}
+
+void Player::getReferenceCard(){
+	reference_card->output();
 }
